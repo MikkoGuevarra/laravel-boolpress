@@ -18,9 +18,9 @@ class CreatePostsTable extends Migration
             $table->string('name', 30);
             $table->string('lastname', 30);
             $table->string('title');
-            // $table->string('subtitle')->nullable();
-            // $table->text('content');
-            // $table->string('category')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('content');
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }

@@ -13,20 +13,12 @@ class PostsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) {
-            $new_post_obj = new Post();
-            $new_post_obj->name = $faker->firstName();
-            $new_post_obj->lastname = $faker->lastName();
-            $new_post_obj->title = $faker->catchPhrase();
-            // $new_post_obj->subtitle = $faker->catchPhrase();
-            // $new_post_obj->content = $faker->realText($maxNbChars = 200, $indexSize = 2);
-            $new_post_obj->save();
-
-        }
-
-
-
-
-
+        $new_post_obj = new Post();
+        $new_post_obj->name = $faker->firstName();
+        $new_post_obj->lastname = $faker->lastName();
+        $new_post_obj->title = $faker->sentence(3);
+        $new_post_obj->subtitle = $faker->sentence(3);
+        $new_post_obj->content = $faker->paragraph(2);
+        $new_post_obj->save();
     }
 }
