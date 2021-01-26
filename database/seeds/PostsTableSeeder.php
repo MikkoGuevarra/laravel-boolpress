@@ -16,12 +16,23 @@ class PostsTableSeeder extends Seeder
         for ($i=0; $i < 10 ; $i++) {
 
             $new_post_obj = new Post();
-            $new_post_obj->name = $faker->firstName();
-            $new_post_obj->lastname = $faker->lastName();
             $new_post_obj->title = $faker->word();
-            $new_post_obj->subtitle = $faker->sentence(3);
             $new_post_obj->content = $faker->paragraph(2);
-            $new_post_obj->category = $faker->word();
+            // $new_post_obj->slug = $faker->word();
+
+            //generate slug same as title
+            $slug = Str::slug($new_post_obj->title);
+            $slug_base = $slug;
+            //check if slug is existing in DB
+            $post_presente = Post::where('slug', $slug)->first();
+            $counter = 1;
+            while ($post_presente) {
+                $slug = $slug_base . '-' . $counter;
+                $counter++;
+                $post_presente = Post::where('slug', $slug)->first();
+            }
+
+            $new_post_obj->slug = $slug;
             $new_post_obj->save();
         }
     }
