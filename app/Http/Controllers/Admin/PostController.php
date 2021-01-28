@@ -18,7 +18,7 @@ class PostController extends Controller
         $data = [
             'posts' => Post::all()
         ];
-        return view('admin.post.index', $data);
+        return view('admin.posts.index', $data);
     }
 
     /**
