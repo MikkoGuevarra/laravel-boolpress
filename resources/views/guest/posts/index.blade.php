@@ -9,7 +9,9 @@
                 <ul>
                     @foreach ($posts as $post)
                         <li>
-                            {{$post->title}}
+                            <a href="{{ route('guest.posts.show', ['slug' => $post->slug]) }}">
+                                {{$post->title}}
+                            </a>
                         </li>
 
                     @endforeach
