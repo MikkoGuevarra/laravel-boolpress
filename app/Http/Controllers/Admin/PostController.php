@@ -28,7 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        // $data = [
+        //     'categories' => Category::all()
+        // ];
+        return view('admin.posts.create');
     }
 
     /**

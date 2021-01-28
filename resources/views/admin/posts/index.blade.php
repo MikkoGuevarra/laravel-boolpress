@@ -7,7 +7,7 @@
             <h1>All Posts</h1>
         </div>
         <div class="col-md-6 justify-content-end">
-            <a href="#" class="btn btn-info">Create New Post</a>
+            <a href="{{ route('admin.posts.create') }}" class="btn btn-info">Create New Post</a>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -29,6 +29,7 @@
                             <td>{{ $post->slug}}</td>
                             <td>
                                 <a href="{{route('admin.posts.show', ['post' => $post->id])}}" class="btn btn-info">Details</a>
+                                <a href="{{route('admin.posts.show', ['post' => $post->id])}}" class="btn btn-warning">Edit</a>
                             </td>
                         </tr>
 
