@@ -29,7 +29,14 @@
                             <td>{{ $post->slug}}</td>
                             <td>
                                 <a href="{{route('admin.posts.show', ['post' => $post->id])}}" class="btn btn-info">Details</a>
-                                <a href="{{route('admin.posts.show', ['post' => $post->id])}}" class="btn btn-warning">Edit</a>
+                                <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-warning">Edit</a>
+                                <form method="POST"
+                                class="d-inline-block" action="{{ route('admin.posts.destroy', ['post' => $post->id]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" class="btn btn-danger" value="delete">
+
+                                </form>
                             </td>
                         </tr>
 
