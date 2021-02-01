@@ -15,4 +15,8 @@ class PostController extends Controller
             'results' => $posts
         ]);
     }
+
+    public function profile() {
+        return view('admin.profile');
+    }
 }
